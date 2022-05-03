@@ -11,9 +11,10 @@ export const useFetch = (url) => {
                 let res = await fetch(url);
 
                 if(!res.ok){
-                    throw {err: true,
-                            status: res.status,
-                            statusText: !res.statusText ? "Ocurrio un Error" : res.statusText,
+                    throw {
+                        err: true,
+                        status: res.status,
+                        statusText: !res.statusText ? "Ocurrio un Error" : res.statusText,
                     };
                 }
                 let data = await res.json();
@@ -27,7 +28,8 @@ export const useFetch = (url) => {
                 setError(err);
             }
         
-        }
+        };
+        
         getData(url);
 
     }, [url]);
